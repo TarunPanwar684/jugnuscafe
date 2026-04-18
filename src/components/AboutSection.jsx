@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ShieldCheck, Leaf } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   return (
     <section id="about" className="py-24 bg-brand-brown/5 relative overflow-hidden">
       {/* Decorative element background */}
@@ -17,23 +19,23 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-serif text-brand-gold mb-6">Our Story</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-gold mb-6">{t('about.title')}</h2>
             <div className="h-1 w-24 bg-brand-saffron mx-auto rounded-full mb-8"></div>
             
             <p className="text-lg md:text-xl text-brand-cream/90 leading-relaxed font-serif italic mb-6">
-              "Building trust through every bite, right here in Rampur Maniharan."
+              {t('about.quote')}
             </p>
             
             <p className="text-brand-cream/70 leading-relaxed mb-8">
-              At Chauhan’s Sweets & Restaurant, we believe that food is an emotion. For years, we have been serving the local community of Rampur Maniharan with authentic, mouth-watering street food and premium Indian sweets. We source the freshest local ingredients and prepare everything with the same love and care as you would at home. 
+              {t('about.par1')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
-              { icon: Heart, title: "Authentic Taste", desc: "Traditional recipes passed down generations." },
-              { icon: ShieldCheck, title: "Local Trust", desc: "A beloved name in Rampur Maniharan, Saharanpur." },
-              { icon: Leaf, title: "Fresh Ingredients", desc: "Premium quality ingredients, prepared daily." }
+              { icon: Heart, title: t('about.features.t1'), desc: t('about.features.d1') },
+              { icon: ShieldCheck, title: t('about.features.t2'), desc: t('about.features.d2') },
+              { icon: Leaf, title: t('about.features.t3'), desc: t('about.features.d3') }
             ].map((feature, idx) => (
               <motion.div 
                 key={idx}

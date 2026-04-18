@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Clock, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section id="home" className="relative min-h-screen flex flex-col pt-24 pb-8 overflow-hidden">
       {/* Background Image with Parallax Zoom Animation */}
@@ -31,7 +33,7 @@ const Hero = () => {
             {/* हर निवाले में <span className="text-brand-gold italic font-light">अपनापन।</span> */}
           </h1>
           <p className="text-white/90 text-lg md:text-2xl mb-12 font-sans font-light leading-relaxed max-w-2xl drop-shadow-md">
-            Chauhan's Sweets — a premium little corner for handcrafted Indian sweets, fresh snacks and the kind of chai that feels like a hug.
+            {t('hero.subheadline')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-6">
@@ -44,7 +46,7 @@ const Hero = () => {
               className="px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full font-bold shadow-[0_8px_32px_rgba(37,211,102,0.3)] transition-all flex justify-center items-center gap-3 text-lg"
             >
               <MessageCircle size={24} />
-              Book on WhatsApp ↗
+              {t('hero.whatsapp')}
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -52,7 +54,7 @@ const Hero = () => {
               href="#menu"
               className="px-8 py-4 bg-transparent border border-white/40 text-white hover:bg-white/10 rounded-full font-bold transition-all flex justify-center items-center gap-3 text-lg"
             >
-              Explore the menu ↗
+              {t('hero.exploreMenu')}
             </motion.a>
           </div>
         </motion.div>
@@ -63,7 +65,7 @@ const Hero = () => {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-white/80 text-sm md:text-base font-medium">
             <div className="flex items-center gap-2">
               <Clock size={16} className="text-brand-gold" />
-              Open daily - 8 AM — 10 PM
+              {t('hero.openDaily')}
             </div>
             <div className="flex items-center gap-2">
               <Phone size={16} className="text-brand-gold" />
@@ -71,7 +73,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={16} className="text-brand-gold" />
-              Islamnagar Road, Rampur Maniharan
+              {t('hero.address')}
             </div>
           </div>
         </div>

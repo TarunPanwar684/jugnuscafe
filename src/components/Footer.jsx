@@ -1,7 +1,9 @@
 import React from 'react';
 import Logo from './Logo';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-brand-dark border-t border-brand-brown/20 pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -9,7 +11,7 @@ const Footer = () => {
           <Logo className="h-16 mb-8" />
           
           <p className="max-w-md text-brand-cream/60 mb-8 italic font-serif">
-            "Taste That Feels Like Home. Bringing the authentic flavors of Rampur Maniharan."
+            {t('about.quote')}
           </p>
           
           <div className="flex gap-6 mb-12">
@@ -20,13 +22,13 @@ const Footer = () => {
               WhatsApp
             </a>
             <a href="tel:+918218524305" className="text-brand-cream/40 hover:text-brand-saffron transition-colors">
-              Call Now
+              {t('navbar.callNow')}
             </a>
           </div>
           
           <div className="w-full border-t border-brand-brown/20 pt-8 flex flex-col md:flex-row items-center justify-between text-brand-cream/30 text-sm">
-            <p>&copy; {new Date().getFullYear()} Chauhan’s Sweets & Restaurant. All rights reserved.</p>
-            <p className="mt-2 md:mt-0">Designed with passion.</p>
+            <p>&copy; {new Date().getFullYear()} Chauhan’s Sweets & Restaurant. {t('footer.rights')}</p>
+            <p className="mt-2 md:mt-0">{t('footer.madeWith')}</p>
           </div>
         </div>
       </div>

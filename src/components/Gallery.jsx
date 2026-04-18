@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
+import { useTranslation } from 'react-i18next';
+
 const DISHES = [
-  { name: "Ras Malai", query: "Ras_malai", type: "SWEET" },
-  { name: "chilli patato", query: "Paneer_tikka", type: "SAVOURY" },
-  { name: "Jalebi", query: "Jalebi", type: "SWEET" },
-  { name: "Golgappe", query: "Panipuri", type: "SAVOURY" },
-  { name: "Aloo Tikki Chaat", query: "Aloo_tikki", type: "SAVOURY" },
-  { name: "Kaju Katli", query: "Kaju_katli", type: "SWEET" },
-  { name: "Samosa", query: "Samosa", type: "SAVOURY" },
-  { name: "Chole Bhature", query: "Chole_bhature", type: "SAVOURY" },
+  { name: "Ras Malai", key: "rasMalai", query: "Ras_malai", type: "SWEET" },
+  { name: "chilli patato", key: "chilliPotatoes", query: "Paneer_tikka", type: "SAVOURY" },
+  { name: "Jalebi", key: "jalebi", query: "Jalebi", type: "SWEET" },
+  { name: "Golgappe", key: "golgappe", query: "Panipuri", type: "SAVOURY" },
+  { name: "Aloo Tikki Chaat", key: "alooTikkiChaat", query: "Aloo_tikki", type: "SAVOURY" },
+  { name: "Kaju Katli", key: "kajuKatli", query: "Kaju_katli", type: "SWEET" },
+  { name: "Samosa", key: "samosa", query: "Samosa", type: "SAVOURY" },
+  { name: "Chole Bhature", key: "choleBhature", query: "Chole_bhature", type: "SAVOURY" },
 
 ];
 
@@ -24,6 +26,7 @@ const fetchWikiImage = async (query) => {
 };
 
 const Gallery = () => {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState(
     DISHES.map(d => ({ ...d, url: null, loading: true }))
@@ -51,7 +54,7 @@ const Gallery = () => {
               viewport={{ once: true }}
               className="text-brand-brown/60 uppercase tracking-[0.2em] text-xs font-bold mb-4"
             >
-              Signature Menu
+              {t('gallery.signatureMenu')}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -59,7 +62,7 @@ const Gallery = () => {
               viewport={{ once: true }}
               className="text-5xl md:text-6xl font-serif text-[#3E2723]"
             >
-              Sweet. Savoury. <span className="italic font-light">Unforgettable.</span>
+              {t('gallery.title1')}<span className="italic font-light">{t('gallery.title2')}</span>
             </motion.h2>
           </div>
           <motion.p
@@ -68,7 +71,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             className="text-brand-brown/70 mt-6 md:mt-0 max-w-sm text-lg"
           >
-            Every single dish, handcrafted in small batches — because shortcuts never made anyone say wow.
+            {t('gallery.desc')}
           </motion.p>
         </div>
 
@@ -104,10 +107,10 @@ const Gallery = () => {
               <div className="px-3 pb-2 flex justify-between items-end">
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-widest text-[#a8a196] mb-1">
-                    {image.type}
+                    {t('gallery.' + image.type.toLowerCase())}
                   </p>
                   <h3 className="text-xl font-serif text-[#3E2723]">
-                    {image.name}
+                    {t('menu.items.' + image.key)}
                   </h3>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[#F5F2EB] flex justify-center items-center text-[#3E2723] group-hover:bg-[#E8E4D9] transition-colors">
@@ -151,7 +154,7 @@ const Gallery = () => {
               transition={{ delay: 0.2 }}
               className="absolute bottom-10 text-3xl font-serif text-brand-gold bg-black/50 px-6 py-2 rounded-full backdrop-blur-md"
             >
-              {selectedImage.name}
+              {t('menu.items.' + selectedImage.key)}
             </motion.h3>
           </motion.div>
         )}

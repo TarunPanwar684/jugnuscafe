@@ -1,50 +1,52 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Menu = () => {
+  const { t } = useTranslation();
   const menuData = [
     {
-      category: "Main Course",
+      category: t('menu.categories.mainCourse'),
       items: [
-        { name: "Chole Bhature", loved: true },
-        { name: "Chole Chawal", loved: false },
-        { name: "Simple Samosa", loved: false },
-        { name: "Dahi Samosa", loved: true },
-        { name: "Chola Samosa", loved: false },
+        { name: t('menu.items.choleBhature'), loved: true },
+        { name: t('menu.items.choleChawal'), loved: false },
+        { name: t('menu.items.simpleSamosa'), loved: false },
+        { name: t('menu.items.dahiSamosa'), loved: true },
+        { name: t('menu.items.cholaSamosa'), loved: false },
       ]
     },
     {
-      category: "Chats",
+      category: t('menu.categories.chats'),
       items: [
-        { name: "Tikki Chat", loved: true },
-        { name: "Tikki Khasta Chat", loved: true },
-        { name: "Thandi Chat", loved: false },
-        { name: "Rajbhog", loved: true },
-        { name: "Golgappe", loved: true },
-        { name: "Dahi Golgappe", loved: false },
+        { name: t('menu.items.tikkiChat'), loved: true },
+        { name: t('menu.items.tikkiKhastaChat'), loved: true },
+        { name: t('menu.items.thandiChat'), loved: false },
+        { name: t('menu.items.rajbhog'), loved: true },
+        { name: t('menu.items.golgappe'), loved: true },
+        { name: t('menu.items.dahiGolgappe'), loved: false },
       ]
     },
     {
-      category: "Fast Food",
+      category: t('menu.categories.fastFood'),
       items: [
-        { name: "Steam Momo", loved: false },
-        { name: "Fry Momo", loved: true },
-        { name: "Veg Noodles", loved: false },
-        { name: "Paneer Noodles", loved: true },
-        { name: "French Fries", loved: false },
-        { name: "Chilli Potatoes", loved: false },
-        { name: "Manchurian", loved: true },
+        { name: t('menu.items.steamMomo'), loved: false },
+        { name: t('menu.items.fryMomo'), loved: true },
+        { name: t('menu.items.vegNoodles'), loved: false },
+        { name: t('menu.items.paneerNoodles'), loved: true },
+        { name: t('menu.items.frenchFries'), loved: false },
+        { name: t('menu.items.chilliPotatoes'), loved: false },
+        { name: t('menu.items.manchurian'), loved: true },
       ]
     },
     {
-      category: "Famous Sweets",
+      category: t('menu.categories.famousSweets'),
       items: [
-        { name: "Kaju Katli", loved: true },
-        { name: "Gond Laddu", loved: true },
-        { name: "Gulab Jamun", loved: false },
-        { name: "Rasgulla", loved: false },
-        { name: "Milk Cake", loved: true },
+        { name: t('menu.items.kajuKatli'), loved: true },
+        { name: t('menu.items.gondLaddu'), loved: true },
+        { name: t('menu.items.gulabJamun'), loved: false },
+        { name: t('menu.items.rasgulla'), loved: false },
+        { name: t('menu.items.milkCake'), loved: true },
       ]
     }
   ];
@@ -60,7 +62,7 @@ const Menu = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-serif text-brand-gold mb-4"
           >
-            Our Menu
+            {t('menu.title')}
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -74,7 +76,7 @@ const Menu = () => {
             viewport={{ once: true }}
             className="text-brand-cream/70 mt-6 max-w-2xl mx-auto"
           >
-            A curated selection of authentic street food and premium sweets to satisfy your cravings.
+            {t('menu.desc')}
           </motion.p>
         </div>
 
@@ -105,7 +107,7 @@ const Menu = () => {
                       {item.loved && (
                         <span className="flex items-center text-[10px] uppercase tracking-wider bg-brand-saffron/20 text-brand-saffron px-2 py-0.5 rounded-full ml-2">
                           <Star size={10} className="mr-1 inline fill-brand-saffron" />
-                          Most Loved
+                          {t('menu.mostLoved')}
                         </span>
                       )}
                     </span>

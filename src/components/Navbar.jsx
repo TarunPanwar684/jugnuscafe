@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, PhoneCall } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'hi' : 'en');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +22,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Menu', href: '#menu' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'About', href: '#about' },
-    { name: 'Location', href: '#location' },
+    { name: t('navbar.home'), href: '#home' },
+    { name: t('navbar.menu'), href: '#menu' },
+    { name: t('navbar.gallery'), href: '#gallery' },
+    { name: t('navbar.about'), href: '#about' },
+    { name: t('navbar.location'), href: '#location' },
   ];
 
   return (
@@ -54,22 +60,37 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+            <button 
+              onClick={toggleLanguage}
+              className="text-brand-cream hover:text-brand-saffron transition-colors font-bold text-sm uppercase tracking-wider border border-brand-brown/50 px-3 py-1 rounded-full"
+              title="Toggle Language"
+            >
+              {i18n.language === 'en' ? 'HI' : 'EN'}
+            </button>
             <a 
               href="tel:+918218524305" 
               className="flex items-center gap-2 bg-brand-saffron hover:bg-brand-gold text-brand-dark px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105"
             >
               <PhoneCall size={18} />
-              <span>Call Now</span>
+              <span>{t('navbar.callNow')}</span>
             </a>
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden z-50 text-brand-cream focus:outline-none"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4 z-50">
+            <button 
+              onClick={toggleLanguage}
+              className="text-brand-cream border border-brand-brown/50 px-2.5 py-0.5 rounded-full text-xs font-bold"
+            >
+              {i18n.language === 'en' ? 'HI' : 'EN'}
+            </button>
+            <button 
+              className="text-brand-cream focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
 
