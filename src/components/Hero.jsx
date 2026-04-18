@@ -4,7 +4,7 @@ import { MessageCircle, Clock, Phone, MapPin } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 lg:py-0">
+    <section id="home" className="relative min-h-screen flex flex-col pt-24 pb-8 overflow-hidden">
       {/* Background Image with Parallax Zoom Animation */}
       <motion.div
         animate={{ scale: [1, 1.05, 1] }}
@@ -58,7 +58,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="w-full mt-12 pb-8 lg:mt-0 lg:pb-0 lg:absolute lg:bottom-6 lg:left-0 lg:right-0 z-20">
+      <div className="w-full mt-12 z-20 relative px-4 sm:px-0">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-white/80 text-sm md:text-base font-medium">
             <div className="flex items-center gap-2">
