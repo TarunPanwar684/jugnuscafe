@@ -6,16 +6,17 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 lg:py-0">
       {/* Background Image with Parallax Zoom Animation */}
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1593786257529-688942b109e3?q=80&w=2070&auto=format&fit=crop')`, // Close up macro food shot
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop')`, // Bright Indian food imagery
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-brand-dark/40 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/30 to-brand-dark/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/10 to-transparent"></div>
       </motion.div>
 
       <div className="container relative z-10 mx-auto px-4 flex-grow flex flex-col justify-center w-full">
@@ -27,28 +28,28 @@ const Hero = () => {
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.2] mb-6 drop-shadow-lg">
             कुछ स्वाद <span className="text-brand-gold italic font-light block mt-2 text-4xl md:text-6xl lg:text-7xl">याद बन जाते हैं,</span>
-            हर निवाले में <span className="text-brand-gold italic font-light">अपनापन।</span>
+            {/* हर निवाले में <span className="text-brand-gold italic font-light">अपनापन।</span> */}
           </h1>
           <p className="text-white/90 text-lg md:text-2xl mb-12 font-sans font-light leading-relaxed max-w-2xl drop-shadow-md">
             Chauhan's Sweets — a premium little corner for handcrafted Indian sweets, fresh snacks and the kind of chai that feels like a hug.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-6">
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://wa.me/918218524305?text=Hello%2C%20I%20want%20to%20order%20from%20Chauhan%27s%20Sweets%20and%20Restaurant" 
+              href="https://wa.me/918218524305?text=Hello%2C%20I%20want%20to%20order%20from%20Chauhan%27s%20Sweets%20and%20Restaurant"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full font-bold shadow-[0_8px_32px_rgba(37,211,102,0.3)] transition-all flex justify-center items-center gap-3 text-lg"
             >
               <MessageCircle size={24} />
-              Chat on WhatsApp ↗
+              Book on WhatsApp ↗
             </motion.a>
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#menu" 
+              href="#menu"
               className="px-8 py-4 bg-transparent border border-white/40 text-white hover:bg-white/10 rounded-full font-bold transition-all flex justify-center items-center gap-3 text-lg"
             >
               Explore the menu ↗
